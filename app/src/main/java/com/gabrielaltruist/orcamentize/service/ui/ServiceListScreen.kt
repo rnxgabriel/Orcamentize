@@ -1,2 +1,2 @@
-package com.example.gessolider.service.ui
+package com.gabrielaltruist.orcamentize.service.ui
 

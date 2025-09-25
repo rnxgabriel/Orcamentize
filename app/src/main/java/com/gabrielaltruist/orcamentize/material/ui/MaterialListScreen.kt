@@ -1,2 +1,2 @@
-package com.example.gessolider.material.ui
+package com.gabrielaltruist.orcamentize.material.ui
 

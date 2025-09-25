@@ -1,2 +1,2 @@
-package com.example.gessolider.budget.ui
+package com.gabrielaltruist.orcamentize.budget.ui
 

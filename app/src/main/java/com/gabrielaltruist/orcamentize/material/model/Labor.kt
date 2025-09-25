@@ -1,4 +1,4 @@
-package com.example.gessolider.material.model
+package com.gabrielaltruist.orcamentize.material.model
 
 enum class Labor {
     M2,

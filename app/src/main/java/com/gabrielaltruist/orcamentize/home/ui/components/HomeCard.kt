@@ -1,4 +1,4 @@
-package com.example.gessolider.home.ui.components
+package com.gabrielaltruist.orcamentize.home.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -18,7 +18,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.gessolider.core.ui.theme.AppThemeProvider
+import com.gabrielaltruist.orcamentize.core.ui.theme.AppThemeProvider
 
 
 @Composable

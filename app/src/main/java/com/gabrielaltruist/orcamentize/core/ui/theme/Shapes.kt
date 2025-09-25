@@ -1,4 +1,4 @@
-package com.example.yourappname.ui.theme
+package com.gabrielaltruist.orcamentize.core.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Shapes

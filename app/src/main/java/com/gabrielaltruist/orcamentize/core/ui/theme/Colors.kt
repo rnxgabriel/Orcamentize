@@ -1,4 +1,4 @@
-package com.example.gessolider.core.ui.theme
+package com.gabrielaltruist.orcamentize.core.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

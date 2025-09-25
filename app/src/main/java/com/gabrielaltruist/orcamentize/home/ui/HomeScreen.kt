@@ -1,4 +1,4 @@
-package com.example.gessolider.home.ui
+package com.gabrielaltruist.orcamentize.home.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -17,8 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.gessolider.core.ui.theme.AppThemeProvider
-import com.example.gessolider.home.ui.components.HomeCard
+import com.gabrielaltruist.orcamentize.core.ui.theme.AppThemeProvider
+import com.gabrielaltruist.orcamentize.home.ui.components.HomeCard
 import kotlinx.serialization.Serializable
 
 @Serializable
