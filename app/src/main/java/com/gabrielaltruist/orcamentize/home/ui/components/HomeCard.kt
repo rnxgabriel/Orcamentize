@@ -28,7 +28,8 @@ fun HomeCard(onClick: () -> Unit, modifier: Modifier = Modifier, icon: ImageVect
         Modifier
             .fillMaxWidth()
             .padding(16.dp)
-            .then(Modifier),
+            .then(modifier),
+        colors = CardDefaults.cardColors(),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Row(
