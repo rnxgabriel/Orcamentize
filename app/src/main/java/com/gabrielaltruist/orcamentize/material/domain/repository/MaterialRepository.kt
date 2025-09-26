@@ -1,6 +1,6 @@
-package com.gabrielaltruist.orcamentize.material.repository
+package com.gabrielaltruist.orcamentize.material.domain.repository
 
-import com.gabrielaltruist.orcamentize.material.model.Material
+import com.gabrielaltruist.orcamentize.material.domain.model.Material
 
 interface MaterialRepository {
     fun getMaterials(): List<Material>
