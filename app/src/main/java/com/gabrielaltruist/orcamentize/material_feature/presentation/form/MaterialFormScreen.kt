@@ -30,32 +30,24 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavHostController
 import com.gabrielaltruist.orcamentize.material_feature.domain.model.EMeasure
+import com.gabrielaltruist.orcamentize.navigation.AppRoute
 import com.gabrielaltruist.orcamentize.navigation.MaterialFormRoute
-import com.gabrielaltruist.orcamentize.navigation.NavigationEvent
 import com.gabrielaltruist.orcamentize.ui.theme.AppThemeProvider
 
 @Composable
-fun MaterialFormRoute(routeData: MaterialFormRoute, navController: NavHostController) {
-
+fun MaterialFormRoute(
+    routeData: MaterialFormRoute,
+    onNavigate: (AppRoute) -> Unit,
+) {
     val viewModel: MaterialFormViewModel = viewModel()
     val state by viewModel.uiState.collectAsState()
 
-    LaunchedEffect(navController, viewModel) {
-        viewModel.setFormState(routeData)
-        viewModel.navigationEvent.collect { event ->
-            when (event) {
-                NavigationEvent.NavigateBack -> {
-                    navController.popBackStack()
-                }
-
-                is NavigationEvent.NavigateTo -> {
-                    navController.navigate(event.destination)
-                }
-            }
-        }
+    LaunchedEffect(Unit) {
+        viewModel.navigationEvent.collect(onNavigate)
     }
+
+    viewModel.setFormState(routeData)
     MaterialFormScreen(state = state, onAction = viewModel::onAction)
 }
 

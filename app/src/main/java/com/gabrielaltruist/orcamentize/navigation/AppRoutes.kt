@@ -3,27 +3,29 @@ package com.gabrielaltruist.orcamentize.navigation
 import kotlinx.serialization.Serializable
 
 @Serializable
-sealed interface AppRoute
+sealed class AppRoute
+
+data object NavigateBack : AppRoute()
 
 @Serializable
-object HomeRoute : AppRoute
+object HomeRoute : AppRoute()
 
 @Serializable
-object NewBudgetRoute : AppRoute
+object NewBudgetRoute : AppRoute()
 
 @Serializable
-object CreateServiceRoute : AppRoute
+object CreateServiceRoute : AppRoute()
 
 @Serializable
 data class MaterialFormRoute(
     val materialId: String? = null
-) : AppRoute
+) : AppRoute()
 
 @Serializable
-object MaterialListRoute : AppRoute
+object MaterialListRoute : AppRoute()
 
 @Serializable
-object ServiceListRoute : AppRoute
+object ServiceListRoute : AppRoute()
 
 @Serializable
-object BudgetListRoute : AppRoute
+object BudgetListRoute : AppRoute()

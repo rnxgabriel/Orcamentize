@@ -12,8 +12,9 @@ import com.gabrielaltruist.orcamentize.material_feature.domain.usecase.form.Labe
 import com.gabrielaltruist.orcamentize.material_feature.domain.usecase.form.MeasureValidation
 import com.gabrielaltruist.orcamentize.material_feature.domain.usecase.form.NameValidation
 import com.gabrielaltruist.orcamentize.material_feature.domain.usecase.form.PriceValidation
+import com.gabrielaltruist.orcamentize.navigation.AppRoute
 import com.gabrielaltruist.orcamentize.navigation.MaterialFormRoute
-import com.gabrielaltruist.orcamentize.navigation.NavigationEvent
+import com.gabrielaltruist.orcamentize.navigation.NavigateBack
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -33,7 +34,7 @@ class MaterialFormViewModel(
     private val _uiState = MutableStateFlow(MaterialFormState())
     val uiState = _uiState.asStateFlow()
 
-    private val _navigationEvent = Channel<NavigationEvent>()
+    private val _navigationEvent = Channel<AppRoute>()
     val navigationEvent = _navigationEvent.receiveAsFlow()
 
     fun onAction(action: MaterialFormAction) {
@@ -130,7 +131,7 @@ class MaterialFormViewModel(
             // TODO: add in Database
             delay(1000) // Simulate network delay
             _uiState.update { it.copy(isSaveSuccess = true) }
-            _navigationEvent.send(NavigationEvent.NavigateBack)
+            _navigationEvent.send(NavigateBack)
         }
     }
 
@@ -166,6 +167,4 @@ class MaterialFormViewModel(
         }
         return true
     }
-
-
 }

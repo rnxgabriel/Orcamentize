@@ -11,16 +11,24 @@ import com.gabrielaltruist.orcamentize.material_feature.presentation.form.Materi
 @Composable
 fun Navigation() {
     val navController = rememberNavController()
+
+    fun onNavigate(route: AppRoute) {
+        when (route) {
+            is NavigateBack -> navController.popBackStack()
+            else -> navController.navigate(route)
+        }
+    }
+
     NavHost(navController, startDestination = HomeRoute) {
         composable<HomeRoute> {
             HomeScreen(
-                onNavigate = (navController::navigate)
+                onNavigate = ::onNavigate
             )
         }
         composable<MaterialFormRoute> { backStackEntry ->
             MaterialFormRoute(
-                backStackEntry.toRoute<MaterialFormRoute>(),
-                navController
+                routeData = backStackEntry.toRoute<MaterialFormRoute>(),
+                onNavigate = ::onNavigate
             )
         }
         composable<MaterialListRoute> { }
