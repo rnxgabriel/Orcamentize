@@ -116,9 +116,9 @@ fun MaterialFormScreen(state: MaterialFormState, onAction: (MaterialFormAction) 
                     onDismissRequest = { isMeasureMenuExpanded = false }
                 ) {
                     DropdownMenuItem(
-                        text = { Text("Unidade") },
+                        text = { Text("Quantidade") },
                         onClick = {
-                            onAction(MaterialFormAction.OnMeasureChanged(EMeasure.Unidade))
+                            onAction(MaterialFormAction.OnMeasureChanged(EMeasure.Quantity))
                             isMeasureMenuExpanded = false
                         }
                     )

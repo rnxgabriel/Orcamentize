@@ -7,7 +7,7 @@ import com.gabrielaltruist.orcamentize.material_feature.domain.model.Material
 import com.gabrielaltruist.orcamentize.material_feature.domain.model.Measure.Linear
 import com.gabrielaltruist.orcamentize.material_feature.domain.model.Measure.M2
 import com.gabrielaltruist.orcamentize.material_feature.domain.model.Measure.M3
-import com.gabrielaltruist.orcamentize.material_feature.domain.model.Measure.Unidade
+import com.gabrielaltruist.orcamentize.material_feature.domain.model.Measure.Quantity
 import com.gabrielaltruist.orcamentize.material_feature.domain.usecase.form.LabelValidation
 import com.gabrielaltruist.orcamentize.material_feature.domain.usecase.form.MeasureValidation
 import com.gabrielaltruist.orcamentize.material_feature.domain.usecase.form.NameValidation
@@ -105,7 +105,7 @@ class MaterialFormViewModel(
                 currentState.measureLargura.toDouble(),
             )
 
-            EMeasure.Unidade -> Unidade(
+            EMeasure.Quantity -> Quantity(
                 currentState.measureUnidade.toInt(),
             )
 
