@@ -1,4 +1,4 @@
-package com.gabrielaltruist.orcamentize.material.ui
+package com.gabrielaltruist.orcamentize.features.material.presentation.list
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,7 +15,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.gabrielaltruist.orcamentize.core.ui.theme.AppThemeProvider
+import androidx.navigation.NavHostController
+import com.gabrielaltruist.orcamentize.ui.theme.AppThemeProvider
+import kotlinx.serialization.Serializable
+
+@Serializable
+object MaterialListRoute
+
+@Composable
+fun MaterialListRoute(navController: NavHostController) {
+    MaterialListScreen() { }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
