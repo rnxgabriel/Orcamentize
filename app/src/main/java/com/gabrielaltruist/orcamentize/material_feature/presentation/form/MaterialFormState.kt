@@ -10,12 +10,12 @@ data class MaterialFormState(
     val salePrice: String = "",
 
     val measureLinear: String = "",
-    val measureUnidade: String = "",
+    val measureQuantidade: String = "",
     val measureComprimento: String = "",
     val measureLargura: String = "",
     val measureProfundidade: String = "",
 
-    val eMeasure: EMeasure = EMeasure.Unidade,
+    val eMeasure: EMeasure = EMeasure.Quantity,
 
     // For validation errors
     val nameError: String? = null,

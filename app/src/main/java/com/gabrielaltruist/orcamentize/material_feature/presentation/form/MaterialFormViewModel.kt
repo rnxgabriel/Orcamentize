@@ -46,7 +46,7 @@ class MaterialFormViewModel(
                 it.copy(
                     eMeasure = action.newMeasureType,
                     measureLinear = "",
-                    measureUnidade = "",
+                    measureQuantidade = "",
                     measureComprimento = "",
                     measureLargura = "",
                     measureProfundidade = ""
@@ -61,7 +61,7 @@ class MaterialFormViewModel(
 
             is MaterialFormAction.OnMeasureLarguraChanged -> _uiState.update {
                 it.copy(
-                    measureUnidade = action.newLargura
+                    measureQuantidade = action.newLargura
                 )
             }
 
@@ -74,7 +74,7 @@ class MaterialFormViewModel(
 
             is MaterialFormAction.OnMeasureUnidadeChanged -> _uiState.update {
                 it.copy(
-                    measureUnidade = action.newUnidade
+                    measureQuantidade = action.newUnidade
                 )
             }
 
@@ -106,7 +106,7 @@ class MaterialFormViewModel(
             )
 
             EMeasure.Quantity -> Quantity(
-                currentState.measureUnidade.toInt(),
+                currentState.measureQuantidade.toInt(),
             )
 
             EMeasure.M3 -> M3(
@@ -145,7 +145,7 @@ class MaterialFormViewModel(
             measureValidation.execute(
                 currentState.eMeasure,
                 currentState.measureLinear.toDoubleOrNull(),
-                currentState.measureUnidade.toIntOrNull(),
+                currentState.measureQuantidade.toIntOrNull(),
                 currentState.measureComprimento.toDoubleOrNull(),
                 currentState.measureLargura.toDoubleOrNull(),
                 currentState.measureProfundidade.toDoubleOrNull()

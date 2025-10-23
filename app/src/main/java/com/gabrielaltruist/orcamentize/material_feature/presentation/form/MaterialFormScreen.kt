@@ -148,8 +148,8 @@ fun MaterialFormScreen(state: MaterialFormState, onAction: (MaterialFormAction) 
 
             when (state.eMeasure) {
 
-                EMeasure.Unidade -> OutlinedTextField(
-                    value = state.measureUnidade,
+                EMeasure.Quantity -> OutlinedTextField(
+                    value = state.measureQuantidade,
                     onValueChange = { onAction(MaterialFormAction.OnMeasureUnidadeChanged(it)) },
                     label = { Text("Unidades") },
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),

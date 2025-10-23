@@ -7,7 +7,7 @@ class MeasureValidation {
     fun execute(
         eMeasure: EMeasure,
         measureLinear: Double?,
-        measureUnidade: Int?,
+        measureQuantidade: Int?,
         measureComprimento: Double?,
         measureLargura: Double?,
         measureProfundidade: Double?,
@@ -20,8 +20,8 @@ class MeasureValidation {
                     return ValidationResult(false, "Informe a medida linear")
             }
 
-            EMeasure.Unidade -> {
-                if (measureUnidade == null || measureUnidade == 0)
+            EMeasure.Quantity -> {
+                if (measureQuantidade == null || measureQuantidade == 0)
                     return ValidationResult(false, "Informe a unidade")
 
             }
