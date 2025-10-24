@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     kotlin("plugin.serialization") version "2.0.21"
+    alias(libs.plugins.google.devtools.ksp) version "2.3.0"
 }
 
 android {
@@ -52,9 +53,12 @@ dependencies {
     implementation(libs.androidx.compose.material3)
 
     // Compose Navigation
-    val nav_version = "2.9.3"
-    implementation("androidx.navigation:navigation-compose:$nav_version")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)
+
+    // Room
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
