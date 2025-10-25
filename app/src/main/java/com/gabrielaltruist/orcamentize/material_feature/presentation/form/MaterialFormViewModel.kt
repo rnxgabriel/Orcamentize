@@ -2,6 +2,7 @@ package com.gabrielaltruist.orcamentize.material_feature.presentation.form
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.gabrielaltruist.orcamentize.material_feature.data.local.MaterialDao
 import com.gabrielaltruist.orcamentize.material_feature.domain.model.EMeasure
 import com.gabrielaltruist.orcamentize.material_feature.domain.model.Material
 import com.gabrielaltruist.orcamentize.material_feature.domain.model.Measure.Linear
@@ -15,6 +16,7 @@ import com.gabrielaltruist.orcamentize.material_feature.domain.usecase.form.Pric
 import com.gabrielaltruist.orcamentize.navigation.AppRoute
 import com.gabrielaltruist.orcamentize.navigation.MaterialFormRoute
 import com.gabrielaltruist.orcamentize.navigation.NavigateBack
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,9 +24,12 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
-class MaterialFormViewModel(
+@HiltViewModel
+class MaterialFormViewModel @Inject constructor(
+    private val materialDao: MaterialDao,
     private val labelValidation: LabelValidation = LabelValidation(),
     private val measureValidation: MeasureValidation = MeasureValidation(),
     private val nameValidation: NameValidation = NameValidation(),
@@ -117,13 +122,14 @@ class MaterialFormViewModel(
         }
 
         val material = Material(
+            id = 0,
             name = currentState.name,
             label = currentState.label,
             description = currentState.description,
-            costPrice = currentState.costPrice.toDouble(),
-            salePrice = currentState.salePrice.toDouble(),
             measure = measure,
-            eMeasure = currentState.eMeasure
+            eMeasure = currentState.eMeasure,
+            costPrice = currentState.costPrice.toDouble(),
+            salePrice = currentState.salePrice.toDouble()
         )
 
         viewModelScope.launch {

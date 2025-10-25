@@ -13,7 +13,7 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
-import androidx.compose.material3.MenuAnchorType
+import androidx.compose.material3.ExposedDropdownMenuAnchorType
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -29,7 +29,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.gabrielaltruist.orcamentize.material_feature.domain.model.EMeasure
 import com.gabrielaltruist.orcamentize.navigation.AppRoute
 import com.gabrielaltruist.orcamentize.navigation.MaterialFormRoute
@@ -40,12 +40,10 @@ fun MaterialFormRoute(
     routeData: MaterialFormRoute,
     onNavigate: (AppRoute) -> Unit,
 ) {
-    val viewModel: MaterialFormViewModel = viewModel()
+    val viewModel: MaterialFormViewModel = hiltViewModel()
     val state by viewModel.uiState.collectAsState()
 
-    LaunchedEffect(Unit) {
-        viewModel.navigationEvent.collect(onNavigate)
-    }
+    LaunchedEffect(Unit) { viewModel.navigationEvent.collect(onNavigate) }
 
     viewModel.setFormState(routeData)
     MaterialFormScreen(state = state, onAction = viewModel::onAction)
@@ -109,7 +107,7 @@ fun MaterialFormScreen(state: MaterialFormState, onAction: (MaterialFormAction) 
                     trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = isMeasureMenuExpanded) },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .menuAnchor(MenuAnchorType.PrimaryEditable)
+                        .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryEditable)
                 )
                 ExposedDropdownMenu(
                     expanded = isMeasureMenuExpanded,

@@ -10,4 +10,16 @@ enum class EMeasure {
             M3 -> "M³"
             Linear -> "Linear"
         }
+
+    companion object {
+        fun fromMeasure(measure: Measure): EMeasure {
+            return when (measure) {
+                is Measure.M2 -> M2
+                is Measure.Quantity -> Quantity
+                is Measure.M3 -> M3
+                is Measure.Linear -> Linear
+
+            }
+        }
+    }
 }
